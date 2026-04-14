@@ -9,11 +9,11 @@
 <label>Name:</label> 
 <input type="text" id="name"><br><br> 
 <label>Team A:</label> 
-<input type="text" id="team_a"><br><br> 
+<input type="text" id="teamA"><br><br> 
 <label>Tore Team A:</label> 
 <input type="number" id="toreA"><br><br> 
 <label>Team B:</label> 
-<input type="text" id="team_b"><br><br> 
+<input type="text" id="teamB"><br><br> 
 <label>Tore Team B:</label> 
 <input type="number" id="toreB"><br><br> 
 <button onclick="speichern()">Tipp speichern</button> 
@@ -35,8 +35,10 @@ const supabase = createClient(supabaseUrl, supabaseKey);
         .insert([ 
           { 
             name: name, 
+            team_a: teamA,
             tore_a: toreA, 
-            tore_b: toreB 
+            team_b: toreB,
+            tore_b: toreB, 
           } 
         ]); 
  
@@ -67,8 +69,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
       for (let i = 0; i < data.length; i++) { 
         let tipp = data[i]; 
         text += 
-          tipp.name + ": " + 
-          tipp.tore_a + " : " + tipp.tore_b + 
+          tipp.name + ": " + tipp.team_a + " " +  
+          tipp.tore_a + " : " + tipp.tore_b + " " + tipp.team_b
           "<br>"; 
 } 
 document.getElementById("ausgabe").innerHTML = text; 
