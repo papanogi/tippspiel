@@ -27,7 +27,9 @@ const supabaseKey = "sb_publishable_8NbD6EuqcNVLBv5jLvFRBA_QpQGgtC7";
 const supabase = createClient(supabaseUrl, supabaseKey); 
     async function speichern() { 
       const name = document.getElementById("name").value; 
+        const teamA = document.getElementById("teamA").value; 
       const toreA = Number(document.getElementById("toreA").value); 
+        const teamB = document.getElementById("teamB").value; 
       const toreB = Number(document.getElementById("toreB").value); 
  
       const { error } = await supabase 
